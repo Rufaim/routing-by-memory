@@ -1,0 +1,3564 @@
+cora:
+  transductive:
+    gcn:
+      mlp:
+        teacher:
+          num_layers: 3
+          hidden_dim: 1024
+          dropout: 0.5
+          norm_type: "none"
+        student:
+          num_layers: 3
+          hidden_dim: 1024
+          dropout: 0.3
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.001
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.3
+          tau: 0.8
+          adv_eps: 0.04
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+      moe:
+        teacher:
+          num_layers: 3
+          hidden_dim: 1024
+          dropout: 0.5
+          norm_type: "none"
+        student:
+          num_layers: 3
+          hidden_dim: 1024
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.3
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.001
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 10
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.5
+          tau: 0.8
+          adv_eps: 0.04
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+      rbm:
+        teacher:
+          num_layers: 3
+          hidden_dim: 1024
+          dropout: 0.5
+          norm_type: "none"
+        student:
+          num_layers: 3
+          hidden_dim: 1024
+          num_experts: 5
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.01
+          load_balance_coef: 0.01
+          input_attention: True
+          dropout: 0.5
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.001
+            max_epoch: 500
+            pretrain_epoch: 12
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.5
+          tau: 0.8
+          adv_eps: 0.04
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+    sage:
+      mlp:
+        teacher:
+          num_layers: 3
+          hidden_dim: 512
+          dropout: 0.5
+          norm_type: "none"
+        student:
+          num_layers: 3
+          hidden_dim: 512
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.2
+          tau: 1.29
+          adv_eps: 0.04
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+      moe:
+        teacher:
+          num_layers: 3
+          hidden_dim: 512
+          dropout: 0.5
+          norm_type: "none"
+        student:
+          num_layers: 3
+          hidden_dim: 512
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.5
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.2
+          tau: 1.29
+          adv_eps: 0.04
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+      rbm:
+        teacher:
+          num_layers: 3
+          hidden_dim: 512
+          dropout: 0.5
+          norm_type: "none"
+        student:
+          num_layers: 3
+          hidden_dim: 512
+          num_experts: 4
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.00
+          sim_coeff: 0.01
+          load_balance_coef: 0.01
+          input_attention: False
+          dropout: 0.3
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 12
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.2
+          tau: 1.29
+          adv_eps: 0.04
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+  inductive:
+    sage:
+      mlp:
+        teacher:
+          num_layers: 3
+          hidden_dim: 256
+          dropout: 0.5
+          norm_type: "none"
+        student:
+          num_layers: 3
+          hidden_dim: 256
+          dropout: 0.4
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.001
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.3
+          tau: 0.6
+          adv_eps: 0.04
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+      moe:
+        teacher:
+          num_layers: 3
+          hidden_dim: 256
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 3
+          hidden_dim: 256
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.2
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.2
+          tau: 0.6
+          adv_eps: 0.04
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+      rbm:
+        teacher:
+          num_layers: 3
+          hidden_dim: 256
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 3
+          hidden_dim: 256
+          num_experts: 4
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.1
+          sim_coeff: 0.01
+          load_balance_coef: 0.05
+          input_attention: True
+          dropout: 0.4
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0001
+            max_epoch: 500
+            pretrain_epoch: 12
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.2
+          tau: 0.6
+          adv_eps: 0.04
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+citeseer:
+  transductive:
+    gcn:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.4
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.001
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 0.9
+          adv_eps: 0.045
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.4
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.001
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 0.9
+          adv_eps: 0.045
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.4
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          num_experts: 5
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.01
+          load_balance_coef: 0.01
+          input_attention: False
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.001
+            max_epoch: 500
+            pretrain_epoch: 25
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.1
+          tau: 0.9
+          adv_eps: 0.045
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+    sage:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 512
+          dropout: 0.2
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 512
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.001
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 1.19
+          adv_eps: 0.045
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 512
+          dropout: 0.2
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 512
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.025
+          dropout: 0.0
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.001
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 1.19
+          adv_eps: 0.045
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 512
+          dropout: 0.2
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 512
+          num_experts: 4
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.01
+          load_balance_coef: 0.01
+          input_attention: False
+          dropout: 0.2
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 25
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.1
+          tau: 1.19
+          adv_eps: 0.045
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+  inductive:
+    sage:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 512
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 512
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.001
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 0.55
+          adv_eps: 0.045
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 512
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 512
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.5
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.001
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 0.55
+          adv_eps: 0.045
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 512
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 512
+          num_experts: 4
+          k: 3
+          momentum: 0.9
+          vq_coeff: 1e-6
+          sim_coeff: 0.05
+          load_balance_coef: 0.05
+          input_attention: False
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0001
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.001
+            max_epoch: 500
+            pretrain_epoch: 25
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.1
+          tau: 0.55
+          adv_eps: 0.045
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.1
+pubmed:
+  transductive:
+    gcn:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.4
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 1
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 1.0
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.9
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.4
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 1
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 1.0
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.9
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          num_experts: 6
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.01
+          load_balance_coef: 0.01
+          input_attention: True
+          dropout: 0.3
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 10
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 1
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 1.0
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.9
+    sage:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.3
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.4
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 1
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 1.0
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.9
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.3
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.025
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 1
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 1.0
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.9
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.3
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          num_experts: 7
+          k: 2
+          momentum: 0.9
+          vq_coeff: 0.01
+          sim_coeff: 1e-7
+          load_balance_coef: 0.025
+          input_attention: True
+          dropout: 0.5
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 10
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 1
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 1.0
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.9
+  inductive:
+    sage:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.3
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.4
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 1
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 1.0
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.9
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.3
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.5
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 1
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 1.0
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.9
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.3
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          num_experts: 4
+          k: 2
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.025
+          load_balance_coef: 0.025
+          input_attention: True
+          dropout: 0.4
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0001
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 10
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 1
+          window_size: 5
+          iter: 3
+          emb_size: 16
+        loss:
+          lambda: 0.0
+          tau: 1.0
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 0.9
+amazon-com:
+  transductive:
+    gcn:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.9
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.9
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 5
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.01
+          load_balance_coef: 0.05
+          input_attention: False
+          dropout: 0.5
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 4
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.9
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+    sage:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.4
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.6
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.4
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.05
+          dropout: 0.0
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.6
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.4
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 5
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.01
+          sim_coeff: 0.05
+          load_balance_coef: 1e-7
+          input_attention: False
+          dropout: 0.2
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 4
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.6
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+  inductive:
+    sage:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 512
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 512
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.7
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 512
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 512
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.05
+          dropout: 0.5
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.7
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 512
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 512
+          num_experts: 7
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 1e-7
+          load_balance_coef: 0.025
+          input_attention: True
+          dropout: 0.5
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 4
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.7
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+amazon-photo:
+  transductive:
+    gcn:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.4
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.4
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 30
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.8
+          adv_eps: 0.1
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.4
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.4
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 30
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.8
+          adv_eps: 0.1
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.4
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 5
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.01
+          load_balance_coef: 0.01
+          input_attention: True
+          dropout: 0.3
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 3
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 30
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.8
+          adv_eps: 0.1
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+    sage:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.3
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.4
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 30
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.5
+          adv_eps: 0.1
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.3
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.3
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 30
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.5
+          adv_eps: 0.1
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.3
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 5
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.05
+          load_balance_coef: 0.05
+          input_attention: True
+          dropout: 0.0
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 3
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 30
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.5
+          adv_eps: 0.1
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+  inductive:
+    sage:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.2
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.4
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 30
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.9
+          adv_eps: 0.1
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.2
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.05
+          dropout: 0.0
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 30
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.9
+          adv_eps: 0.1
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.2
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 5
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 1e-7
+          load_balance_coef: 1e-7
+          input_attention: True
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0
+            max_epoch: 500
+            pretrain_epoch: 3
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 30
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.4
+          tau: 0.9
+          adv_eps: 0.1
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+academic-cs:
+  transductive:
+    gcn:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.5
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.001
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.3
+          tau: 1.1
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.5
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.001
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.3
+          tau: 1.1
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.4
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 5
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.01
+          load_balance_coef: 0.01
+          input_attention: False
+          dropout: 0.5
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.001
+            max_epoch: 500
+            pretrain_epoch: 3
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.3
+          tau: 1.1
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+    sage:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.001
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.3
+          tau: 0.75
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 128
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.025
+          dropout: 0.3
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.001
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.3
+          tau: 0.75
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 128
+          num_experts: 7
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.01
+          load_balance_coef: 0.025
+          input_attention: True
+          dropout: 0.5
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0001
+            max_epoch: 500
+            pretrain_epoch: 3
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.3
+          tau: 0.75
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+  inductive:
+    sage:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.001
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.3
+          tau: 0.65
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 128
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.025
+          dropout: 0.1
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.001
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.3
+          tau: 0.65
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 128
+          num_experts: 6
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.1
+          sim_coeff: 1e-7
+          load_balance_coef: 0.05
+          input_attention: False
+          dropout: 0.5
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.001
+            weight_decay: 0.0001
+            max_epoch: 500
+            pretrain_epoch: 3
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.3
+          tau: 0.65
+          adv_eps: 0.07
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-09
+academic-physics:
+  transductive:
+    gcn:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.4
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.3
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.2
+          adv_eps: 0.05
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-9
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.4
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.3
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.2
+          adv_eps: 0.05
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-9
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 1024
+          dropout: 0.4
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 1024
+          num_experts: 12
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.02
+          sim_coeff: 0.01
+          load_balance_coef: 0.01
+          input_attention: False
+          dropout: 0.2
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 6
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.2
+          adv_eps: 0.05
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-9
+    sage:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 64
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 64
+          dropout: 0.3
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.2
+          adv_eps: 0.05
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-9
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 64
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 64
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.05
+          dropout: 0.0
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.2
+          adv_eps: 0.05
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-9
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 64
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 2
+          hidden_dim: 64
+          num_experts: 5
+          k: 2
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.00
+          load_balance_coef: 0.00
+          input_attention: true
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0001
+            max_epoch: 500
+            pretrain_epoch: 6
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.2
+          adv_eps: 0.05
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-9
+  inductive:
+    sage:
+      mlp:
+        teacher:
+          num_layers: 3
+          hidden_dim: 64
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 3
+          hidden_dim: 64
+          dropout: 0.3
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 0.8
+          adv_eps: 0.05
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-9
+      moe:
+        teacher:
+          num_layers: 3
+          hidden_dim: 64
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 3
+          hidden_dim: 64
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.2
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 1000
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 0.8
+          adv_eps: 0.05
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-9
+      rbm:
+        teacher:
+          num_layers: 3
+          hidden_dim: 64
+          dropout: 0.6
+          norm_type: "none"
+        student:
+          num_layers: 3
+          hidden_dim: 64
+          num_experts: 4
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.05
+          load_balance_coef: 0.01
+          input_attention: False
+          dropout: 0.6
+          norm_type: "none"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.001
+            weight_decay: 0.0
+            max_epoch: 500
+            pretrain_epoch: 6
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 70
+          num_walks: 1
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 0.8
+          adv_eps: 0.05
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-9
+ogbn-arxiv:
+  transductive:
+    gcn:
+      mlp:
+        teacher:
+          num_layers: 3
+          hidden_dim: 2048
+          dropout: 0.3
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 2048
+          dropout: 0.1
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.9
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 128
+        loss:
+          lambda: 0.2
+          tau: 1.0
+          adv_eps: 0.02
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-6
+      moe:
+        teacher:
+          num_layers: 3
+          hidden_dim: 2048
+          dropout: 0.3
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 2048
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.1
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.9
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 128
+        loss:
+          lambda: 0.2
+          tau: 1.0
+          adv_eps: 0.02
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-6
+      rbm:
+        teacher:
+          num_layers: 3
+          hidden_dim: 2048
+          dropout: 0.3
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 2048
+          num_experts: 11
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.01
+          load_balance_coef: 0.01
+          input_attention: False
+          dropout: 0.2
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 4
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.9
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 128
+        loss:
+          lambda: 0.2
+          tau: 1.0
+          adv_eps: 0.02
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-6
+    sage:
+      mlp:
+        teacher:
+          num_layers: 3
+          hidden_dim: 1024
+          dropout: 0.6
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 1024
+          dropout: 0.1
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.9
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 128
+        loss:
+          lambda: 0.2
+          tau: 1.0
+          adv_eps: 0.02
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-6
+      moe:
+        teacher:
+          num_layers: 3
+          hidden_dim: 1024
+          dropout: 0.6
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 1024
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.0
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.9
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 128
+        loss:
+          lambda: 0.2
+          tau: 1.0
+          adv_eps: 0.02
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-6
+      rbm:
+        teacher:
+          num_layers: 3
+          hidden_dim: 1024
+          dropout: 0.6
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 1024
+          num_experts: 5
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.01
+          load_balance_coef: 1e-7
+          input_attention: False
+          dropout: 0.2
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0
+            max_epoch: 500
+            pretrain_epoch: 4
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.9
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 128
+        loss:
+          lambda: 0.2
+          tau: 1.0
+          adv_eps: 0.02
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-6
+  inductive:
+    sage:
+      mlp:
+        teacher:
+          num_layers: 3
+          hidden_dim: 512
+          dropout: 0.6
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 512
+          dropout: 0.1
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.9
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 128
+        loss:
+          lambda: 0.2
+          tau: 0.9
+          adv_eps: 0.02
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-6
+      moe:
+        teacher:
+          num_layers: 3
+          hidden_dim: 512
+          dropout: 0.6
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 512
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.025
+          dropout: 0.4
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.9
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 128
+        loss:
+          lambda: 0.2
+          tau: 0.9
+          adv_eps: 0.02
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-6
+      rbm:
+        teacher:
+          num_layers: 3
+          hidden_dim: 512
+          dropout: 0.6
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 512
+          num_experts: 5
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.01
+          sim_coeff: 1e-7
+          load_balance_coef: 0.025
+          input_attention: False
+          dropout: 0.2
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.005
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 4
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.9
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 128
+        loss:
+          lambda: 0.2
+          tau: 0.9
+          adv_eps: 0.02
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-6
+ogbn-products:
+  transductive:
+    gcn:
+      mlp:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.4
+          norm_type: "batch"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.2
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.003
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.1
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-7
+      moe:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.4
+          norm_type: "batch"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.2
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.003
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.1
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-7
+      rbm:
+        teacher:
+          num_layers: 2
+          hidden_dim: 256
+          dropout: 0.4
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 2048
+          num_experts: 8
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.01
+          load_balance_coef: 0.01
+          input_attention: False
+          dropout: 0.2
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.003
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 10
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.1
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-7
+    sage:
+      mlp:
+        teacher:
+          num_layers: 3
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 128
+          dropout: 0.2
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.003
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.1
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-7
+      moe:
+        teacher:
+          num_layers: 3
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 128
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.6
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.003
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.1
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-7
+      rbm:
+        teacher:
+          num_layers: 3
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 128
+          num_experts: 8
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.01
+          load_balance_coef: 0.01
+          input_attention: False
+          dropout: 0.2
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.003
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 10
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 0.9
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-7
+  inductive:
+    sage:
+      mlp:
+        teacher:
+          num_layers: 3
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 128
+          dropout: 0.2
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.003
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 0
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.1
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-7
+      moe:
+        teacher:
+          num_layers: 3
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "batch"
+        student:
+          num_layers: 2
+          hidden_dim: 256
+          num_experts: 8
+          k: 3
+          load_balance_coef: 0.01
+          dropout: 0.2
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.003
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 50
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.1
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-7
+      rbm:
+        teacher:
+          num_layers: 3
+          hidden_dim: 128
+          dropout: 0.6
+          norm_type: "batch"
+        student:
+          num_layers: 3
+          hidden_dim: 128
+          num_experts: 8
+          k: 3
+          momentum: 0.9
+          vq_coeff: 0.05
+          sim_coeff: 0.01
+          load_balance_coef: 0.01
+          input_attention: False
+          dropout: 0.2
+          norm_type: "batch"
+        optimizer:
+          teacher:
+            learning_rate: 0.01
+            weight_decay: 0.0005
+            max_epoch: 500
+          student:
+            learning_rate: 0.003
+            weight_decay: 0.0005
+            max_epoch: 500
+            pretrain_epoch: 10
+        reliable_sampling:
+          min_update_epoch: 50
+          update_rate: 1
+          init_power: 1.0
+          momentum: 0.99
+          bins_num: 50
+        positional_encoding:
+          walk_length: 50
+          num_walks: 5
+          window_size: 5
+          iter: 1
+          emb_size: 64
+        loss:
+          lambda: 0.1
+          tau: 1.1
+          adv_eps: 0.005
+          adv_weigth: 0.05
+          adv_iters: 5
+          feat_distill_weight: 1e-7
