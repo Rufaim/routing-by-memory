@@ -39,6 +39,18 @@ To run KRD configuration use:
 python main_distill.py -d <DATASET_TYPE> -m <RUN_MODE> --config <PATH_TO_CONFIG> -t sage -s mlp --reliable_sampling [--gpu_id <GPU_ID>] [--seed <SEED>]
 ```
 
+## Citation
+If you find this project useful for your research, please use the following BibTeX entry.
+```
+@article{rumiantsev2024graph,
+  title={Graph Knowledge Distillation to Mixture of Experts},
+  author={Pavel Rumiantsev and Mark Coates},
+  journal={Transactions on Machine Learning Research},
+  issn={2835-8856},
+  year={2024},
+  url={https://openreview.net/forum?id=vzZ3pbNRvh}
+}
+```
 
 ## Acknowledgements
 
